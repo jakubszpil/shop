@@ -6,7 +6,11 @@ const CTA = forwardRef(({ className, type, children, ...props }, ref) => {
   const bindClass = className ? `cta ${className}` : "cta";
   return (
     <Component className={bindClass} type={type !== "link" ? type : null} {...props}>
-      {children}
+      <a className={bindClass}>
+        <p>{children}</p>
+        <span className="fas fa-arrow-right cta__icon" aria-hidden="true"></span>
+        <div className="cta__bar"></div>
+      </a>
     </Component>
   );
 });
